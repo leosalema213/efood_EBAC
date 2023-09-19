@@ -1,8 +1,8 @@
 ### Nesse repos,criei a base para projetos react, nele consta:
--EditorConfig
--Eslint
--Prettier
--Typescript
+-EditorConfig <br />
+-Eslint   <br />
+-Prettier   <br />
+-Typescript   <br />
 -Styled-components
 
 ## Available Scripts
