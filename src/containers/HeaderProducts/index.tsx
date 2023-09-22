@@ -14,7 +14,7 @@ const HeaderProducts = ({ imagem, category, name }: Props) => (
       <h1>
         <img src={eFoodLogo} alt="" />
       </h1>
-      0 produto(s) no carrinho
+      <p>0 produto(s) no carrinho</p>
     </Header>
     <Hero style={{ backgroundImage: `url(${imagem})` }}>
       <p>{category}</p>

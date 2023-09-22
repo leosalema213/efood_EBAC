@@ -11,6 +11,15 @@ export const Header = styled.header`
   background-image: url(${fundoHeader});
   padding: 60px 170px;
   font-weight: bold;
+
+  @media (max-width: 1024px) {
+    padding: 60px 60px;
+  }
+  @media (max-width: 670px) {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
 `
 export const Hero = styled.div`
   background-repeat: no-repeat;
@@ -27,9 +36,28 @@ export const Hero = styled.div`
   h2 {
     margin-top: 156px;
   }
+
+  @media (max-width: 780px) {
+    padding: 10px 0 32px 20px;
+    p {
+      font-size: 20px;
+    }
+
+    h2 {
+      font-size: 26px;
+    }
+  }
 `
 export const LinkRestaurantes = styled(Link)`
   text-decoration: none;
   color: ${cores.vermelho};
   margin-right: 80px;
+  @media (max-width: 780px) {
+    margin-right: 60px;
+  }
+  @media (max-width: 670px) {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
 `

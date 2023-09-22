@@ -40,6 +40,11 @@ export const Rating = styled.div`
 export const Title = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 780px) {
+    h2 {
+      font-size: 18px;
+    }
+  }
 `
 export const CardDescription = styled.div`
   padding: 8px;

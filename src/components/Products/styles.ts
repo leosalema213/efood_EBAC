@@ -8,6 +8,17 @@ export const ProductItem = styled.li`
   max-width: 320px;
   margin-bottom: 32px;
 
+  @media (max-width: 1024px) {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  @media (max-width: 670px) {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   h3 {
     font-size: 16px;
     font-weight: 900;

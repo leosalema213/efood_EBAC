@@ -8,12 +8,20 @@ export const Header = styled.header`
   padding-top: 60px;
   text-align: center;
 
-  p {
+  h2 {
     margin-top: 136px;
     font-size: 36px;
     font-weight: 900;
     line-heigh: 42px;
     color: ${cores.vermelho};
+  }
+
+  @media (max-width: 780px) {
+    padding: 60px 10px 40px 10px;
+    h2 {
+      margin-top: 80px;
+      font-size: 24px;
+    }
   }
 `
 export const HeaderContent = styled.div`

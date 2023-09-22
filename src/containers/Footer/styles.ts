@@ -10,6 +10,11 @@ export const Footer = styled.header`
     line-heigh: 10px;
     color: ${cores.vermelho};
   }
+  @media (max-width: 780px) {
+    p {
+      font-size: 14px;
+    }
+  }
 `
 export const FooterContent = styled.div`
   display: flex;

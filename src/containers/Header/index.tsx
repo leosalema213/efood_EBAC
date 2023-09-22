@@ -6,10 +6,10 @@ const Header = () => (
       <h1>
         <img src={logo} alt="EFOOD" />
       </h1>
-      <p>
+      <h2>
         Viva experiências gastronômicas <br />
         no conforto da sua casa
-      </p>
+      </h2>
     </HeaderContent>
   </H>
 )
