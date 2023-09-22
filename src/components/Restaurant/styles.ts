@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
@@ -46,7 +47,9 @@ export const CardDescription = styled.div`
   border-left: 1px solid ${cores.vermelho};
   border-bottom: 1px solid ${cores.vermelho};
 `
-export const Botao = styled.a`
+export const Botao = styled(Link)`
+  text-decoration: none;
+  font-weight: bold;
   background-color: ${cores.vermelho};
   color: ${cores.bege};
   padding: 4px 6px;

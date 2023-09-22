@@ -4,6 +4,9 @@ import { cores } from '../../styles'
 
 export const Header = styled.header`
   background-image: url(${background});
+  padding-bottom: 40px;
+  padding-top: 60px;
+  text-align: center;
 
   p {
     margin-top: 136px;

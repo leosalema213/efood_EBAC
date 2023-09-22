@@ -1,4 +1,4 @@
-import { Header, Hero } from './styles'
+import { Header, Hero, LinkRestaurantes } from './styles'
 import eFoodLogo from '../../assets/images/logo.png'
 
 export type Props = {
@@ -10,7 +10,7 @@ export type Props = {
 const HeaderProducts = ({ imagem, category, name }: Props) => (
   <>
     <Header>
-      <a href="#">Restaurantes</a>
+      <LinkRestaurantes to={'/'}>Restaurantes</LinkRestaurantes>
       <h1>
         <img src={eFoodLogo} alt="" />
       </h1>

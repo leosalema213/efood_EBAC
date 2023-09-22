@@ -2,7 +2,7 @@ import { Header as H, HeaderContent } from './styles'
 import logo from '../../assets/images/logo.png'
 const Header = () => (
   <H>
-    <HeaderContent className="containerMedium">
+    <HeaderContent className="containerLarge">
       <h1>
         <img src={logo} alt="EFOOD" />
       </h1>

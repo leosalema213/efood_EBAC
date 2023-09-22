@@ -3,6 +3,7 @@ import { Card, Infos, Rating, Title, CardDescription, Botao } from './styles'
 import estrela from '../../assets/images/estrela.png'
 
 type Props = {
+  linkProducts: string
   name: string
   description: string
   image: string
@@ -10,7 +11,14 @@ type Props = {
   infos: string[]
 }
 
-const AfiliadoCard = ({ name, description, image, rating, infos }: Props) => (
+const RestaurantCard = ({
+  name,
+  description,
+  image,
+  rating,
+  infos,
+  linkProducts
+}: Props) => (
   <Card>
     <img src={image} alt="teste" />
     <Infos>
@@ -27,9 +35,9 @@ const AfiliadoCard = ({ name, description, image, rating, infos }: Props) => (
         </Rating>
       </Title>
       <p>{description}</p>
-      <Botao>Saiba mais</Botao>
+      <Botao to={linkProducts}>Saiba mais</Botao>
     </CardDescription>
   </Card>
 )
 
-export default AfiliadoCard
+export default RestaurantCard

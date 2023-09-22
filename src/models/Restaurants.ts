@@ -1,10 +1,11 @@
-class Afiliados {
+class Restaurants {
   name: string
   description: string
   image: string
   rating: number
   infos: string[]
   id: number
+  linkProducts: string
 
   constructor(
     name: string,
@@ -13,7 +14,8 @@ class Afiliados {
     image: string,
     rating: number,
     infos: string[],
-    id: number
+    id: number,
+    linkProducts: string
   ) {
     this.name = name
     this.description = description
@@ -21,7 +23,8 @@ class Afiliados {
     this.rating = rating
     this.infos = infos
     this.id = id
+    this.linkProducts = linkProducts
   }
 }
 
-export default Afiliados
+export default Restaurants
