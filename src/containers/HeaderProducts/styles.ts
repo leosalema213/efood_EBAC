@@ -3,13 +3,14 @@ import { cores } from '../../styles'
 import fundoHeader from '../../assets/images/fundo.png'
 import { Link } from 'react-router-dom'
 
-export const Header = styled.header`
+export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: ${cores.vermelho};
-  background-image: url(${fundoHeader});
-  padding: 60px 170px;
+  font-size: 18px;
+
+  padding: 60px 0px;
   font-weight: bold;
 
   @media (max-width: 1024px) {
@@ -21,20 +22,40 @@ export const Header = styled.header`
     position: relative;
   }
 `
+export const Header = styled.div`
+  background-image: url(${fundoHeader});
+`
+export const LinkRestaurantes = styled(Link)`
+  text-decoration: none;
+  color: ${cores.vermelho};
+
+  @media (max-width: 780px) {
+    margin-right: 60px;
+  }
+  @media (max-width: 670px) {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+`
 export const Hero = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  font-size: 32px;
-  color: #fff;
-  padding: 25px 0 32px 170px;
+`
+export const HeroContainer = styled.div`
+  color: #ffffff;
+  padding: 24px 0 32px 0px;
 
   p {
+    font-size: 32px;
     font-weight: 100;
   }
 
   h2 {
     margin-top: 156px;
+    font-weight: 900;
+    font-size: 32px;
   }
 
   @media (max-width: 780px) {
@@ -45,19 +66,7 @@ export const Hero = styled.div`
 
     h2 {
       font-size: 26px;
+      margin-top: 100px;
     }
-  }
-`
-export const LinkRestaurantes = styled(Link)`
-  text-decoration: none;
-  color: ${cores.vermelho};
-  margin-right: 80px;
-  @media (max-width: 780px) {
-    margin-right: 60px;
-  }
-  @media (max-width: 670px) {
-    position: absolute;
-    left: 10px;
-    top: 10px;
   }
 `

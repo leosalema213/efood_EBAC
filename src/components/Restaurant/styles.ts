@@ -17,8 +17,8 @@ export const Card = styled.div`
 
   p {
     margin: 16px 0;
-    height: 100px;
     overflow-y: auto;
+    font-size: 14px;
   }
 `
 export const Infos = styled.div`
@@ -48,12 +48,17 @@ export const Title = styled.div`
 `
 export const CardDescription = styled.div`
   padding: 8px;
+  display: flex;
+  flex-direction: column;
   border-right: 1px solid ${cores.vermelho};
   border-left: 1px solid ${cores.vermelho};
   border-bottom: 1px solid ${cores.vermelho};
 `
 export const Botao = styled(Link)`
+  width: 88px;
+  text-align: center;
   text-decoration: none;
+  font-size: 14px;
   font-weight: bold;
   background-color: ${cores.vermelho};
   color: ${cores.bege};

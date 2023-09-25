@@ -20,7 +20,7 @@ export const Header = styled.header`
     padding: 60px 10px 40px 10px;
     h2 {
       margin-top: 80px;
-      font-size: 24px;
+      font-size: 22px;
     }
   }
 `
