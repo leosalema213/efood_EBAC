@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
   font-weight: bold;
 
   @media (max-width: 1024px) {
-    padding: 60px 60px;
+    padding: 4S0px 40px;
   }
   @media (max-width: 670px) {
     display: flex;
@@ -57,6 +57,10 @@ export const HeroContainer = styled.div`
     margin-top: 156px;
     font-weight: 900;
     font-size: 32px;
+  }
+  @media (max-width: 1024px) {
+    padding-right: 20px;
+    padding-left: 20px;
   }
 
   @media (max-width: 780px) {

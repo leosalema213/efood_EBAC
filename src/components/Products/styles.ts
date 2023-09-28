@@ -57,6 +57,9 @@ export const Modal = styled.div`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
   }
+  @media (max-width: 1024px) {
+    padding: 0px 20px;
+  }
 `
 export const ModalContent = styled.div`
   display: grid;
@@ -99,6 +102,19 @@ export const ModalContent = styled.div`
     img {
       width: 16px;
       height: 16px;
+    }
+  }
+  @media (max-width: 740px) {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      margin-top: 16px;
+    }
+
+    > img {
+      height: 240px;
     }
   }
 `

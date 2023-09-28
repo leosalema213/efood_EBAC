@@ -13,6 +13,6 @@ export const ProductContainer = styled.ul`
   }
   @media (max-width: 670px) {
     grid-template-columns: 1fr;
-    padding: 60px 60px 120px 60px;
+    padding: 60px 20px 120px 20px;
   }
 `
