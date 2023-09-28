@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
+
 import styled from 'styled-components'
 import { cores } from '../../styles'
 import fundoHeader from '../../assets/images/fundo.png'
-import { Link } from 'react-router-dom'
 
 export const HeaderContainer = styled.header`
   display: flex;

@@ -1,25 +1,31 @@
-import Restaurants from '../../models/Restaurants'
+import { Restaurants } from '../../pages/Home'
 import RestaurantCard from '../../components/Restaurant'
 import { ListContainer } from './styles'
 
 type Props = {
   restaurants: Restaurants[]
 }
-const RestaurantsList = ({ restaurants }: Props) => (
-  <>
-    <ListContainer className="containerLarge">
-      {restaurants.map((r) => (
-        <RestaurantCard
-          linkProducts={r.linkProducts}
-          key={r.id}
-          name={r.name}
-          description={r.description}
-          infos={r.infos}
-          image={r.image}
-          rating={r.rating}
-        />
-      ))}
-    </ListContainer>
-  </>
-)
+const RestaurantsList = ({ restaurants }: Props) => {
+  if (!restaurants) {
+    return <h3>Carregando...</h3>
+  }
+
+  return (
+    <>
+      <ListContainer className="containerLarge">
+        {restaurants.map((r) => (
+          <RestaurantCard
+            key={r.id}
+            name={r.titulo}
+            description={r.descricao}
+            infos={r.tipo}
+            image={r.capa}
+            rating={r.avaliacao}
+            link={`/restaurants/${r.id}`}
+          />
+        ))}
+      </ListContainer>
+    </>
+  )
+}
 export default RestaurantsList

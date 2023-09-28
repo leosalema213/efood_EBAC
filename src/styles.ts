@@ -35,5 +35,6 @@ export const Globalcss = createGlobalStyle`
 `
 export const cores = {
   vermelho: '#E66767',
-  bege: '#FFEBD9'
+  bege: '#FFEBD9',
+  branco: '#FFFFFF'
 }

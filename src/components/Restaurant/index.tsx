@@ -3,12 +3,12 @@ import { Card, Infos, Rating, Title, CardDescription, Botao } from './styles'
 import estrela from '../../assets/images/estrela.png'
 
 type Props = {
-  linkProducts: string
   name: string
   description: string
   image: string
   rating: number
-  infos: string[]
+  infos: string
+  link: string
 }
 
 const RestaurantCard = ({
@@ -17,14 +17,12 @@ const RestaurantCard = ({
   image,
   rating,
   infos,
-  linkProducts
+  link
 }: Props) => (
   <Card>
     <img src={image} alt="teste" />
     <Infos>
-      {infos.map((info) => (
-        <Tag key={info}>{info}</Tag>
-      ))}
+      <Tag>{infos}</Tag>
     </Infos>
     <CardDescription>
       <Title>
@@ -35,7 +33,7 @@ const RestaurantCard = ({
         </Rating>
       </Title>
       <p>{description}</p>
-      <Botao to={linkProducts}>Saiba mais</Botao>
+      <Botao to={link}>Saiba mais</Botao>
     </CardDescription>
   </Card>
 )
