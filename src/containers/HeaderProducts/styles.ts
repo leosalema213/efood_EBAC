@@ -25,6 +25,10 @@ export const HeaderContainer = styled.header`
 `
 export const Header = styled.div`
   background-image: url(${fundoHeader});
+
+  p {
+    cursor: pointer;
+  }
 `
 export const LinkRestaurantes = styled(Link)`
   text-decoration: none;

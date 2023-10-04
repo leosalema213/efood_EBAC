@@ -1,4 +1,5 @@
 import { Restaurants } from '../../pages/Home'
+
 import RestaurantCard from '../../components/Restaurant'
 import { ListContainer } from './styles'
 

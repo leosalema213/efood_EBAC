@@ -1,5 +1,6 @@
 import { Header as H, HeaderContent } from './styles'
 import logo from '../../assets/images/logo.png'
+
 const Header = () => (
   <H>
     <HeaderContent className="containerLarge">

@@ -1,5 +1,5 @@
-import Tag from '../Tag'
 import { Card, Infos, Rating, Title, CardDescription, Botao } from './styles'
+import Tag from '../Tag'
 import estrela from '../../assets/images/estrela.png'
 
 type Props = {
