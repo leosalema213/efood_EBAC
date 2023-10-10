@@ -75,7 +75,6 @@ export const ModalContent = styled.div`
 
   button {
     display: inline-block;
-    cursor: pointer;
   }
 
   > button {

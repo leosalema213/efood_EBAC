@@ -31,6 +31,7 @@ export const Globalcss = createGlobalStyle`
     border: none;
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer;
   }
 `
 export const cores = {
