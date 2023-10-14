@@ -8,7 +8,8 @@ import {
   Hero,
   LinkRestaurantes,
   Header,
-  HeroContainer
+  HeroContainer,
+  Logo
 } from './styles'
 import eFoodLogo from '../../assets/images/logo.png'
 
@@ -29,6 +30,9 @@ const HeaderProducts = ({ imagem, category, name }: Props) => {
           <h1>
             <img src={eFoodLogo} alt="" />
           </h1>
+          <Logo to={'/'}>
+            <img src={eFoodLogo} alt="" />
+          </Logo>
           <p onClick={() => dispatch(open())}>
             {items.length} produto(s) no carrinho
           </p>

@@ -3,6 +3,7 @@ import { cores } from '../../styles'
 
 type Props = {
   maxWidht?: string
+  isVisible?: boolean
 }
 
 export const Overlay = styled.div`
@@ -28,11 +29,12 @@ export const CartContainer = styled.div`
     display: flex;
   }
 `
-export const SideBar = styled.aside`
+export const SideBar = styled.aside<Props>`
   background-color: ${cores.vermelho};
   width: 360px;
   padding: 32px 8px 0 8px;
   z-index: 1;
+  display: ${(props) => (props.isVisible ? 'block' : 'none')};
 
   ul {
     display: flex;
@@ -41,6 +43,18 @@ export const SideBar = styled.aside`
   }
   button {
     width: 100%;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: ${cores.bege};
+  }
+  .emptyCart {
+    color: ${cores.bege};
+    text-align: center;
+    font-weight: bold;
   }
 `
 export const CartItem = styled.li`
@@ -60,7 +74,8 @@ export const CartItem = styled.li`
 
   p {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 400px;
+    color: ${cores.vermelho};
   }
 
   img {
@@ -94,12 +109,6 @@ export const CartDescription = styled.div`
   }
 `
 export const Form = styled.form`
-  h2 {
-    font-size: 16px;
-    font-weight: 700;
-    color: ${cores.bege};
-    margin-bottom: 16px;
-  }
   button {
     width: 100%;
     margin-bottom: 8px;
@@ -107,6 +116,12 @@ export const Form = styled.form`
   .magin-bottom {
     margin-bottom: 24px;
   }
+`
+export const Title = styled.h2`
+  font-size: 16px;
+  font-weight: 700;
+  color: ${cores.bege};
+  margin-bottom: 16px;
 `
 export const InputGroup = styled.div<Props>`
   max-width: ${(props) => props.maxWidht || 'auto'};
@@ -125,13 +140,20 @@ export const InputGroup = styled.div<Props>`
     border: 1px solid ${cores.bege};
     margin-top: 8px;
     margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+  }
 
-    &.error {
-      border: 2px solid red;
-    }
+  .error {
+    border: 2px solid red;
   }
 `
 export const InputGrouping = styled.div`
   display: flex;
   column-gap: 30px;
+`
+export const MessageContainer = styled.div`
+  p {
+    margin-bottom: 24px;
+  }
 `

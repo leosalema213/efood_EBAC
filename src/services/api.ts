@@ -7,7 +7,7 @@ type Product = {
 }
 
 type PurchasePayload = {
-  product: Product[]
+  products: Product[]
   delivery: {
     receiver: string
     adress: {
@@ -15,17 +15,17 @@ type PurchasePayload = {
       city: string
       zipCode: string
       number: number
-      complement: string
+      complement?: string
     }
-    payment: {
-      card: {
-        name: string
-        number: string
-        code: number
-        expires: {
-          month: number
-          year: number
-        }
+  }
+  payment: {
+    card: {
+      name: string
+      number: string
+      code: number
+      expires: {
+        month: number
+        year: number
       }
     }
   }
@@ -46,7 +46,7 @@ const api = createApi({
       query: (body) => ({
         url: 'checkout',
         method: 'POST',
-        body: body
+        body
       })
     })
   })

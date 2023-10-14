@@ -14,22 +14,33 @@ export const HeaderContainer = styled.header`
   padding: 60px 0px;
   font-weight: bold;
 
-  @media (max-width: 1024px) {
-    padding: 4S0px 40px;
-  }
   @media (max-width: 670px) {
     display: flex;
     flex-direction: column;
     position: relative;
+
+    h1 > img {
+      display: none;
+    }
   }
 `
 export const Header = styled.div`
   background-image: url(${fundoHeader});
+  padding: 0 20px;
 
   p {
     cursor: pointer;
   }
 `
+export const Logo = styled(Link)`
+  display: none;
+  margin-bottom: 8px;
+
+  @media (max-width: 670px) {
+    display: block;
+  }
+`
+
 export const LinkRestaurantes = styled(Link)`
   text-decoration: none;
   color: ${cores.vermelho};
@@ -38,9 +49,7 @@ export const LinkRestaurantes = styled(Link)`
     margin-right: 60px;
   }
   @media (max-width: 670px) {
-    position: absolute;
-    left: 10px;
-    top: 10px;
+    display: none;
   }
 `
 export const Hero = styled.div`
