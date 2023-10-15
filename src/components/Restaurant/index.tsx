@@ -1,6 +1,7 @@
-import { Card, Infos, Rating, Title, CardDescription, Botao } from './styles'
 import Tag from '../Tag'
 import estrela from '../../assets/images/estrela.png'
+
+import * as S from './styles'
 
 type Props = {
   name: string
@@ -19,23 +20,23 @@ const RestaurantCard = ({
   infos,
   link
 }: Props) => (
-  <Card>
+  <S.Card>
     <img src={image} alt="teste" />
-    <Infos>
+    <S.Infos>
       <Tag>{infos}</Tag>
-    </Infos>
-    <CardDescription>
-      <Title>
+    </S.Infos>
+    <S.CardDescription>
+      <S.Title>
         <h2>{name}</h2>
-        <Rating>
+        <S.Rating>
           {rating}
           <img src={estrela} alt="" />
-        </Rating>
-      </Title>
+        </S.Rating>
+      </S.Title>
       <p>{description}</p>
-      <Botao to={link}>Saiba mais</Botao>
-    </CardDescription>
-  </Card>
+      <S.Botao to={link}>Saiba mais</S.Botao>
+    </S.CardDescription>
+  </S.Card>
 )
 
 export default RestaurantCard

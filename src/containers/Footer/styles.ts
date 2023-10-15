@@ -1,14 +1,14 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
-export const Footer = styled.header`
-  background-color: ${cores.bege};
+export const FooterContainer = styled.header`
+  background-color: ${colors.beige};
   margin-top: 120px;
   p {
     text-align: center;
     font-size: 10px;
     line-heigh: 10px;
-    color: ${cores.vermelho};
+    color: ${colors.red};
   }
   @media (max-width: 780px) {
     margin-top: 80px;

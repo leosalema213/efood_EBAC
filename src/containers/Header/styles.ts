@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import background from '../../assets/images/fundo.png'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
-export const Header = styled.header`
+export const HeaderContainer = styled.header`
   background-image: url(${background});
   padding-bottom: 40px;
   padding-top: 60px;
@@ -13,7 +13,7 @@ export const Header = styled.header`
     font-size: 36px;
     font-weight: 900;
     line-heigh: 42px;
-    color: ${cores.vermelho};
+    color: ${colors.red};
   }
 
   @media (max-width: 780px) {

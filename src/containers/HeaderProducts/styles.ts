@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import fundoHeader from '../../assets/images/fundo.png'
 
 export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: ${cores.vermelho};
+  color: ${colors.red};
   font-size: 18px;
 
   padding: 60px 0px;
@@ -43,7 +43,7 @@ export const Logo = styled(Link)`
 
 export const LinkRestaurantes = styled(Link)`
   text-decoration: none;
-  color: ${cores.vermelho};
+  color: ${colors.red};
 
   @media (max-width: 780px) {
     margin-right: 60px;
@@ -58,7 +58,7 @@ export const Hero = styled.div`
   background-position: center;
 `
 export const HeroContainer = styled.div`
-  color: #ffffff;
+  color: ${colors.white};
   padding: 24px 0 32px 0px;
 
   p {

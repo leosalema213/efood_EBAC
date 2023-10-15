@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const Card = styled.div`
-  color: ${cores.vermelho};
+  color: ${colors.red};
   position: relative;
   display: flex;
   flex-direction: column;
@@ -50,9 +50,9 @@ export const CardDescription = styled.div`
   padding: 8px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid ${cores.vermelho};
-  border-left: 1px solid ${cores.vermelho};
-  border-bottom: 1px solid ${cores.vermelho};
+  border-right: 1px solid ${colors.red};
+  border-left: 1px solid ${colors.red};
+  border-bottom: 1px solid ${colors.red};
 `
 export const Botao = styled(Link)`
   width: 88px;
@@ -60,7 +60,7 @@ export const Botao = styled(Link)`
   text-decoration: none;
   font-size: 14px;
   font-weight: bold;
-  background-color: ${cores.vermelho};
-  color: ${cores.bege};
+  background-color: ${colors.red};
+  color: ${colors.beige};
   padding: 4px 6px;
 `

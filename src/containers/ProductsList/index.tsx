@@ -1,16 +1,15 @@
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 
-import { add } from '../../store/reducers/cart'
-import { open } from '../../store/reducers/cart'
-import { MenuItem, Restaurants } from '../../pages/Home'
-
-import { Modal, ModalContent, ProductContainer } from './styles'
 import Product from '../../components/Products'
 import close from '../../assets/images/icon-close.png'
 
+import * as S from './styles'
+import { add } from '../../store/reducers/cart'
+import { open } from '../../store/reducers/cart'
+
 type Props = {
-  produtos: Restaurants
+  products: Restaurants
 }
 type Modal = {
   isVisible: boolean
@@ -23,7 +22,7 @@ export const formataPreco = (preco = 0) => {
   }).format(preco)
 }
 
-const ProductsList = ({ produtos }: Props) => {
+const ProductsList = ({ products }: Props) => {
   const [selectedProduct, setSelectedProduct] = useState<MenuItem>()
   const [modal, setModal] = useState<Modal>({
     isVisible: false
@@ -32,7 +31,9 @@ const ProductsList = ({ produtos }: Props) => {
   const dispatch = useDispatch()
 
   const addtoCart = () => {
-    dispatch(add(selectedProduct!))
+    if (selectedProduct) {
+      dispatch(add(selectedProduct))
+    }
     setModal({
       isVisible: false
     })
@@ -46,20 +47,20 @@ const ProductsList = ({ produtos }: Props) => {
   }
   return (
     <>
-      <ProductContainer className="containerLarge">
-        {produtos.cardapio.map((p) => (
+      <S.ProductContainer className="containerLarge">
+        {products.cardapio.map((p) => (
           <li key={p.id} onClick={() => openModal(p)}>
             <Product
-              nome={p.nome}
-              descricaoDoPrato={p.descricao}
-              imagem={p.foto}
+              name={p.nome}
+              dishDescription={p.descricao}
+              image={p.foto}
             />
           </li>
         ))}
-      </ProductContainer>
+      </S.ProductContainer>
       {selectedProduct && (
-        <Modal className={modal.isVisible ? 'visivel' : ''}>
-          <ModalContent className="containerLarge">
+        <S.Modal className={modal.isVisible ? 'visivel' : ''}>
+          <S.ModalContent className="containerLarge">
             <img src={selectedProduct.foto} alt={selectedProduct.nome} />
             <div>
               <h3>{selectedProduct.nome}</h3>
@@ -67,7 +68,7 @@ const ProductsList = ({ produtos }: Props) => {
                 {selectedProduct.descricao} <br /> <br />
                 Serve: {selectedProduct.porcao}
               </p>
-              <button className="buttonAdicionar" onClick={addtoCart}>
+              <button className="buttonAdd" onClick={addtoCart}>
                 Adicionar ao carrinho - {formataPreco(selectedProduct.preco)}
               </button>
             </div>
@@ -82,7 +83,7 @@ const ProductsList = ({ produtos }: Props) => {
                 }
               />
             </button>
-          </ModalContent>
+          </S.ModalContent>
           <div
             onClick={() =>
               setModal({
@@ -91,7 +92,7 @@ const ProductsList = ({ produtos }: Props) => {
             }
             className="overlay"
           ></div>
-        </Modal>
+        </S.Modal>
       )}
     </>
   )

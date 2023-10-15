@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const ProductContainer = styled.ul`
   display: grid;
@@ -27,7 +27,7 @@ export const Modal = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  color: #000;
+  color: ${colors.black};
 
   &.visivel {
     display: flex;
@@ -49,11 +49,11 @@ export const ModalContent = styled.div`
   display: grid;
   grid-template-columns: 280px 1fr;
   column-gap: 24px;
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   width: 100%;
   height: 344px;
   padding: 32px;
-  color: ${cores.branco};
+  color: ${colors.white};
   position: relative;
   z-index: 1;
 

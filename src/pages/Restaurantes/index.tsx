@@ -18,9 +18,9 @@ const Restaurant = () => {
           key={restaurant.id}
           name={restaurant.titulo}
           category={restaurant.tipo}
-          imagem={restaurant.capa}
+          image={restaurant.capa}
         />
-        <ProductsList produtos={restaurant} />
+        <ProductsList products={restaurant} />
       </>
     )
   }

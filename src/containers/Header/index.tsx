@@ -1,9 +1,10 @@
-import { Header as H, HeaderContent } from './styles'
 import logo from '../../assets/images/logo.png'
 
+import * as S from './styles'
+
 const Header = () => (
-  <H>
-    <HeaderContent className="containerLarge">
+  <S.HeaderContainer>
+    <S.HeaderContent className="containerLarge">
       <h1>
         <img src={logo} alt="EFOOD" />
       </h1>
@@ -11,8 +12,8 @@ const Header = () => (
         Viva experiências gastronômicas <br />
         no conforto da sua casa
       </h2>
-    </HeaderContent>
-  </H>
+    </S.HeaderContent>
+  </S.HeaderContainer>
 )
 
 export default Header

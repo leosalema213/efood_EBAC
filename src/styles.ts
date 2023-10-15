@@ -22,7 +22,7 @@ export const Globalcss = createGlobalStyle`
     margin: 0 auto;
 }
 
-  .buttonAdicionar {
+  .buttonAdd {
     display: block;
     padding: 4px 8px;
     background-color: #FFEBD9;
@@ -36,8 +36,9 @@ export const Globalcss = createGlobalStyle`
     font-weight: 700;
   }
 `
-export const cores = {
-  vermelho: '#E66767',
-  bege: '#FFEBD9',
-  branco: '#FFFFFF'
+export const colors = {
+  red: '#E66767',
+  beige: '#FFEBD9',
+  white: '#FFFFFF',
+  black: '#000'
 }

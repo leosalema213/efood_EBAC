@@ -1,26 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useFormik } from 'formik'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import InputMask from 'react-input-mask'
 import * as Yup from 'yup'
+import { useFormik } from 'formik'
+
+import lixeira from '../../assets/images/lixeira.png'
+
+import { usePurchaseMutation } from '../../services/api'
+
+import * as S from './style'
 import { close, remove, clear } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
 import { formataPreco } from '../../containers/ProductsList'
-import {
-  CartContainer,
-  CartDescription,
-  CartItem,
-  Overlay,
-  SideBar,
-  Form,
-  InputGroup,
-  InputGrouping,
-  Title,
-  MessageContainer
-} from './style'
-import lixeira from '../../assets/images/lixeira.png'
-import { useState } from 'react'
-import { usePurchaseMutation } from '../../services/api'
-import InputMask from 'react-input-mask'
-import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
   const { items, isOpen } = useSelector((state: RootReducer) => state.cart)
@@ -41,11 +33,14 @@ const Cart = () => {
   const [paymentData, setPaymentData] = useState(false)
   const [checkout, setCheckout] = useState(false)
   const navigate = useNavigate()
+
+  //function responsible for redirecting to the delivery form
   const goToDelivery = () => {
     setCart(false)
     setPaymentData(false)
     setDeliveryData(true)
   }
+  //function responsible for redirecting to the purchase form
   const goToPayment = () => {
     if (
       !form.errors.fullName &&
@@ -58,12 +53,14 @@ const Cart = () => {
       setDeliveryData(false)
     }
   }
+  //function responsible for redirecting to the delivery form
   const backToCart = () => {
     setCart(true)
     setPaymentData(false)
     setDeliveryData(false)
     setCheckout(false)
   }
+  //responsible function return to the initial state of the cart
   const goToCheckout = () => {
     if (
       !form.errors.cardOwner &&
@@ -76,6 +73,7 @@ const Cart = () => {
       setCheckout(true)
     }
   }
+
   const form = useFormik({
     initialValues: {
       fullName: '',
@@ -138,13 +136,14 @@ const Cart = () => {
       })
     }
   })
-
+  // function to complete the purchase
   const sucessPayment = () => {
     dispatch(close())
     dispatch(clear())
     backToCart()
     navigate('/')
   }
+  //function that checks the fields for errors
   const checkInput = (fieldName: string) => {
     const isTouched = fieldName in form.touched
     const isInvalid = fieldName in form.errors
@@ -153,9 +152,9 @@ const Cart = () => {
     return hasError
   }
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={() => dispatch(close())} />
-      <SideBar isVisible={cart}>
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={() => dispatch(close())} />
+      <S.SideBar isVisible={cart}>
         {items.length < 1 ? (
           <p className="emptyCart">
             Você não possui nenhum produto no carrinho
@@ -164,7 +163,7 @@ const Cart = () => {
           <>
             <ul>
               {items.map((item) => (
-                <CartItem key={item.id}>
+                <S.CartItem key={item.id}>
                   <img src={item.foto} alt="" />
                   <div>
                     <h3>{item.nome}</h3>
@@ -175,22 +174,22 @@ const Cart = () => {
                       alt=""
                     />
                   </div>
-                </CartItem>
+                </S.CartItem>
               ))}
             </ul>
-            <CartDescription>
+            <S.CartDescription>
               <p>Valor total</p> <span>{formataPreco(getTotalPrice())}</span>
-              <button className="buttonAdicionar" onClick={goToDelivery}>
+              <button className="buttonAdd" onClick={goToDelivery}>
                 Continuar com a entrega
               </button>
-            </CartDescription>
+            </S.CartDescription>
           </>
         )}
-      </SideBar>
-      <SideBar isVisible={deliveryData}>
-        <Form onSubmit={form.handleSubmit}>
-          <Title>Entrega</Title>
-          <InputGroup>
+      </S.SideBar>
+      <S.SideBar isVisible={deliveryData}>
+        <S.Form onSubmit={form.handleSubmit}>
+          <S.Title>Entrega</S.Title>
+          <S.InputGroup>
             <label htmlFor="fullName">Quem irá receber</label>
             <input
               id="fullName"
@@ -200,8 +199,8 @@ const Cart = () => {
               onBlur={form.handleBlur}
               className={checkInput('fullName') ? 'error' : ''}
             />
-          </InputGroup>
-          <InputGroup>
+          </S.InputGroup>
+          <S.InputGroup>
             <label htmlFor="address">Endereço</label>
             <input
               id="address"
@@ -211,8 +210,8 @@ const Cart = () => {
               onBlur={form.handleBlur}
               className={checkInput('address') ? 'error' : ''}
             />
-          </InputGroup>
-          <InputGroup>
+          </S.InputGroup>
+          <S.InputGroup>
             <label htmlFor="city">Cidade</label>
             <input
               id="city"
@@ -222,9 +221,9 @@ const Cart = () => {
               onBlur={form.handleBlur}
               className={checkInput('city') ? 'error' : ''}
             />
-          </InputGroup>
-          <InputGrouping>
-            <InputGroup>
+          </S.InputGroup>
+          <S.InputGrouping>
+            <S.InputGroup>
               <label htmlFor="cep">CEP</label>
               <InputMask
                 mask="99999-999"
@@ -235,8 +234,8 @@ const Cart = () => {
                 onBlur={form.handleBlur}
                 className={checkInput('cep') ? 'error' : ''}
               />
-            </InputGroup>
-            <InputGroup>
+            </S.InputGroup>
+            <S.InputGroup>
               <label htmlFor="number">Numero</label>
               <input
                 id="number"
@@ -246,9 +245,9 @@ const Cart = () => {
                 onBlur={form.handleBlur}
                 className={checkInput('number') ? 'error' : ''}
               />
-            </InputGroup>
-          </InputGrouping>
-          <InputGroup className="magin-bottom">
+            </S.InputGroup>
+          </S.InputGrouping>
+          <S.InputGroup className="magin-bottom">
             <label htmlFor="reference">Complemento (opcional)</label>
             <input
               id="reference"
@@ -258,29 +257,21 @@ const Cart = () => {
               onBlur={form.handleBlur}
               className={checkInput('reference') ? 'error' : ''}
             />
-          </InputGroup>
-          <button
-            className="buttonAdicionar"
-            type="button"
-            onClick={goToPayment}
-          >
+          </S.InputGroup>
+          <button className="buttonAdd" type="button" onClick={goToPayment}>
             Continuar com o pagamento
           </button>
-          <button
-            className="buttonAdicionar"
-            type="button"
-            onClick={backToCart}
-          >
+          <button className="nar" type="button" onClick={backToCart}>
             Voltar para o carrinho
           </button>
-        </Form>
-      </SideBar>
-      <SideBar isVisible={paymentData}>
-        <Form onSubmit={form.handleSubmit}>
-          <Title>
+        </S.Form>
+      </S.SideBar>
+      <S.SideBar isVisible={paymentData}>
+        <S.Form onSubmit={form.handleSubmit}>
+          <S.Title>
             Pagamento - Valor a pagar {formataPreco(getTotalPrice())}
-          </Title>
-          <InputGroup>
+          </S.Title>
+          <S.InputGroup>
             <label htmlFor="cardOwner">Nome do cartão</label>
             <input
               id="cardOwner"
@@ -290,9 +281,9 @@ const Cart = () => {
               onBlur={form.handleBlur}
               className={checkInput('cardOwner') ? 'error' : ''}
             />
-          </InputGroup>
-          <InputGrouping>
-            <InputGroup>
+          </S.InputGroup>
+          <S.InputGrouping>
+            <S.InputGroup>
               <label htmlFor="cardNumber">Número do cartão</label>
               <InputMask
                 mask="9999 9999 9999 9999"
@@ -303,8 +294,8 @@ const Cart = () => {
                 onBlur={form.handleBlur}
                 className={checkInput('cardNumber') ? 'error' : ''}
               />
-            </InputGroup>
-            <InputGroup maxWidht="86px">
+            </S.InputGroup>
+            <S.InputGroup maxWidht="86px">
               <label htmlFor="cardCode">CVV</label>
               <InputMask
                 mask="999"
@@ -315,10 +306,10 @@ const Cart = () => {
                 onBlur={form.handleBlur}
                 className={checkInput('cardCode') ? 'error' : ''}
               />
-            </InputGroup>
-          </InputGrouping>
-          <InputGrouping>
-            <InputGroup>
+            </S.InputGroup>
+          </S.InputGrouping>
+          <S.InputGrouping>
+            <S.InputGroup>
               <label htmlFor="expiresMonth">Mês de vencimento</label>
               <InputMask
                 mask="99"
@@ -329,8 +320,8 @@ const Cart = () => {
                 onBlur={form.handleBlur}
                 className={checkInput('expiresMonth') ? 'error' : ''}
               />
-            </InputGroup>
-            <InputGroup className="magin-bottom">
+            </S.InputGroup>
+            <S.InputGroup className="magin-bottom">
               <label htmlFor="expiresYear">Ano de vencimento</label>
               <InputMask
                 mask="99"
@@ -341,28 +332,20 @@ const Cart = () => {
                 name="expiresYear"
                 className={checkInput('expiresYear') ? 'error' : ''}
               />
-            </InputGroup>
-          </InputGrouping>
-          <button
-            className="buttonAdicionar"
-            type="submit"
-            onClick={goToCheckout}
-          >
+            </S.InputGroup>
+          </S.InputGrouping>
+          <button className="buttonAdd" type="submit" onClick={goToCheckout}>
             Finalizar pagamento
           </button>
-          <button
-            className="buttonAdicionar"
-            type="button"
-            onClick={goToDelivery}
-          >
+          <button className="buttonAdd" type="button" onClick={goToDelivery}>
             Voltar para a edição de endereço
           </button>
-        </Form>
-      </SideBar>
-      {isSuccess ? (
-        <SideBar isVisible={checkout}>
-          <Title>Pedido realizado - {data.orderId} </Title>
-          <MessageContainer>
+        </S.Form>
+      </S.SideBar>
+      {isSuccess && data ? (
+        <S.SideBar isVisible={checkout}>
+          <S.Title>Pedido realizado - {data.orderId} </S.Title>
+          <S.MessageContainer>
             <p>
               Estamos felizes em informar que seu pedido já está em processo de
               preparação e, em breve, será entregue no endereço fornecido.
@@ -380,29 +363,21 @@ const Cart = () => {
               Esperamos que desfrute de uma deliciosa e agradável experiência
               gastronômica. Bom apetite!
             </p>
-            <button
-              className="buttonAdicionar"
-              type="button"
-              onClick={sucessPayment}
-            >
+            <button className="buttonAdd" type="button" onClick={sucessPayment}>
               Concluir
             </button>
-          </MessageContainer>
-        </SideBar>
+          </S.MessageContainer>
+        </S.SideBar>
       ) : (
-        <SideBar isVisible={checkout}>
-          <Title> Erro na transação</Title>
+        <S.SideBar isVisible={checkout}>
+          <S.Title> Erro na transação</S.Title>
           <p>Verifique os dados do cartão</p>
-          <button
-            className="buttonAdicionar"
-            type="button"
-            onClick={backToCart}
-          >
+          <button className="buttonAdd" type="button" onClick={backToCart}>
             Voltar para o carrinho
           </button>
-        </SideBar>
+        </S.SideBar>
       )}
-    </CartContainer>
+    </S.CartContainer>
   )
 }
 export default Cart

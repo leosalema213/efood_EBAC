@@ -1,49 +1,42 @@
 import { useDispatch, useSelector } from 'react-redux'
 
+import eFoodLogo from '../../assets/images/logo.png'
+
+import * as S from './styles'
 import { open } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
-
-import {
-  HeaderContainer,
-  Hero,
-  LinkRestaurantes,
-  Header,
-  HeroContainer,
-  Logo
-} from './styles'
-import eFoodLogo from '../../assets/images/logo.png'
 
 export type Props = {
   name: string
   category?: string
-  imagem?: string
+  image?: string
 }
 
-const HeaderProducts = ({ imagem, category, name }: Props) => {
+const HeaderProducts = ({ image, category, name }: Props) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
   return (
     <>
-      <Header>
-        <HeaderContainer className="containerLarge">
-          <LinkRestaurantes to={'/'}>Restaurantes</LinkRestaurantes>
+      <S.Header>
+        <S.HeaderContainer className="containerLarge">
+          <S.LinkRestaurantes to={'/'}>Restaurantes</S.LinkRestaurantes>
           <h1>
             <img src={eFoodLogo} alt="" />
           </h1>
-          <Logo to={'/'}>
+          <S.Logo to={'/'}>
             <img src={eFoodLogo} alt="" />
-          </Logo>
+          </S.Logo>
           <p onClick={() => dispatch(open())}>
             {items.length} produto(s) no carrinho
           </p>
-        </HeaderContainer>
-      </Header>
-      <Hero style={{ backgroundImage: `url(${imagem})` }}>
-        <HeroContainer className="containerLarge">
+        </S.HeaderContainer>
+      </S.Header>
+      <S.Hero style={{ backgroundImage: `url(${image})` }}>
+        <S.HeroContainer className="containerLarge">
           <p>{category}</p>
           <h2>{name}</h2>
-        </HeroContainer>
-      </Hero>
+        </S.HeroContainer>
+      </S.Hero>
     </>
   )
 }

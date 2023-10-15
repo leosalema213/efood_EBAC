@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 type Props = {
   maxWidht?: string
@@ -30,7 +30,7 @@ export const CartContainer = styled.div`
   }
 `
 export const SideBar = styled.aside<Props>`
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   width: 360px;
   padding: 32px 8px 0 8px;
   z-index: 1;
@@ -49,10 +49,10 @@ export const SideBar = styled.aside<Props>`
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
-    color: ${cores.bege};
+    color: ${colors.beige};
   }
   .emptyCart {
-    color: ${cores.bege};
+    color: ${colors.beige};
     text-align: center;
     font-weight: bold;
   }
@@ -61,8 +61,8 @@ export const CartItem = styled.li`
   position: relative;
   display: flex;
   padding: 8px 8px 12px 8px;
-  background-color: ${cores.bege};
-  color: ${cores.vermelho};
+  background-color: ${colors.beige};
+  color: ${colors.red};
   // margin-bottom: 16px;
 
   h3 {
@@ -75,7 +75,7 @@ export const CartItem = styled.li`
   p {
     font-size: 14px;
     font-weight: 400px;
-    color: ${cores.vermelho};
+    color: ${colors.red};
   }
 
   img {
@@ -97,7 +97,7 @@ export const CartDescription = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 40px;
-  color: ${cores.bege};
+  color: ${colors.beige};
   font-size: 14px;
   font-weight: 700;
 
@@ -120,7 +120,7 @@ export const Form = styled.form`
 export const Title = styled.h2`
   font-size: 16px;
   font-weight: 700;
-  color: ${cores.bege};
+  color: ${colors.beige};
   margin-bottom: 16px;
 `
 export const InputGroup = styled.div<Props>`
@@ -130,14 +130,14 @@ export const InputGroup = styled.div<Props>`
   label {
     font-size: 14px;
     font-weight: 700;
-    color: ${cores.bege};
+    color: ${colors.beige};
   }
   input {
     display: block;
     width: 100%;
     padding: 8px;
-    background-color: ${cores.bege};
-    border: 1px solid ${cores.bege};
+    background-color: ${colors.beige};
+    border: 1px solid ${colors.beige};
     margin-top: 8px;
     margin-bottom: 8px;
     font-size: 14px;

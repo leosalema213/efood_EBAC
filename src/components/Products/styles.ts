@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const ProductItem = styled.div`
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   padding: 8px;
-  color: ${cores.bege};
+  color: ${colors.beige};
   max-width: 320px;
   margin-bottom: 32px;
 
