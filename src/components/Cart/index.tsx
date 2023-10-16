@@ -261,7 +261,7 @@ const Cart = () => {
           <button className="buttonAdd" type="button" onClick={goToPayment}>
             Continuar com o pagamento
           </button>
-          <button className="ButtonAdd" type="button" onClick={backToCart}>
+          <button className="buttonAdd" type="button" onClick={backToCart}>
             Voltar para o carrinho
           </button>
         </S.Form>
