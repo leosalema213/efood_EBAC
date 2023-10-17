@@ -1,4 +1,4 @@
-### Link: https://efood-ebac-sigma.vercel.app/
+### Deploy: https://efood-ebac-sigma.vercel.app/
 
 ## Available Scripts
 
