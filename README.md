@@ -1,7 +1,7 @@
 ### Deploy: https://efood-ebac-sigma.vercel.app/
-Em resumo é um aplicativo de alta escala, uma plataforma para restaurantes, </ br>
+Em resumo é um aplicativo de alta escala, uma plataforma para restaurantes, <br>
 com layout responsivo, menu, cardápios e carrinho de compras.
-Projeto desenvolvido em React focado na componentização, código escalável, </ br>
+Projeto desenvolvido em React focado na componentização, código escalável, <br>
 responsivo para maior acessibilidade e foi utilizado Redux para o controle de estados.
 Tecnologias:HTML | CSS | JavaScript | ReactJS | Redux | TypeScript | Prettier | ESLint 
 
