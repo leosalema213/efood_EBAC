@@ -2,7 +2,7 @@
 Em resumo é um aplicativo de alta escala, uma plataforma para restaurantes, <br>
 com layout responsivo, menu, cardápios e carrinho de compras.<br>
 Projeto desenvolvido em React focado na componentização, código escalável, <br>
-responsivo para maior acessibilidade e foi utilizado Redux para o controle de estados.
+responsivo para maior acessibilidade e foi utilizado Redux para o controle de estados. <br>
 Tecnologias:HTML | CSS | JavaScript | ReactJS | Redux | TypeScript | Prettier | ESLint 
 
 
